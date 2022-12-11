@@ -3,16 +3,16 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="tests.LoginTest">
+      <class name="tests.TaskListTest">
         <methods>
-          <include name="init"/>
-          <include name="verifyLogin"/>
+          <include name="verifyAddTask"/>
           <include name="print"/>
           <include name="initialize"/>
+          <include name="init"/>
           <include name="printAfterTest"/>
           <include name="quitBrowser"/>
         </methods>
-      </class> <!-- tests.LoginTest -->
+      </class> <!-- tests.TaskListTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

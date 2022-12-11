@@ -1,5 +1,7 @@
 package tests;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -10,16 +12,19 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import readconfig.ConfigFileReader;
 
 public class TestBase {
 	
 	public static WebDriver driver = null;
+	ConfigFileReader cfr;
 	
 	@BeforeSuite
-	public void initialize() {
+	public void initialize() throws FileNotFoundException, IOException {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		driver.get("https://am.dbw0bjyvnpgi3.amplifyapp.com/");
+		cfr= new ConfigFileReader();
+		driver.get(cfr.getUrl());
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		
