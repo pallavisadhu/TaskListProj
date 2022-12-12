@@ -26,6 +26,9 @@ public class TaskListPage {
 	@FindBy(xpath="//div[@class='card-body']")
 	WebElement cardBody;
 	
+	@FindBy(linkText="Sign out")
+	WebElement signout;
+	
 	@FindBy(xpath="//h5[@class='card-title']")
 	List <WebElement> cardTitleList;
 	
@@ -77,5 +80,11 @@ public class TaskListPage {
 		return taskCount.size();
 		
 	}
+	
+	public void signOut() {
+		signout.click();
+	}
+	
+	
 
 }

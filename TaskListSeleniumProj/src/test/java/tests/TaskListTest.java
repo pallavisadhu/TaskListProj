@@ -45,5 +45,10 @@ public class TaskListTest extends TestBase{
 		Assert.assertEquals(tp.countTask(), 11);
 	}
 	
+	@Test(priority=4)
+	public void verifySignout() {
+		tp.signOut();
+	}
+	
 
 }
