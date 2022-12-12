@@ -5,10 +5,10 @@
     <classes>
       <class name="tests.TaskListTest">
         <methods>
-          <include name="verifyAddTask"/>
           <include name="print"/>
           <include name="initialize"/>
           <include name="init"/>
+          <include name="verifyDeleteTask"/>
           <include name="printAfterTest"/>
           <include name="quitBrowser"/>
         </methods>

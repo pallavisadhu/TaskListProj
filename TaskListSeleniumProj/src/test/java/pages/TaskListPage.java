@@ -1,5 +1,9 @@
 package pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +26,9 @@ public class TaskListPage {
 	@FindBy(xpath="//div[@class='card-body']")
 	WebElement cardBody;
 	
+	@FindBy(xpath="//h5[@class='card-title']")
+	List <WebElement> cardTitleList;
+	
 	public TaskListPage(WebDriver driver) {
 		this.driver=driver;
 		
@@ -40,6 +47,27 @@ public class TaskListPage {
 	public String findTask() {
 		return cardBody.getText();
 		
+	}
+	
+	public void deleteTask(String title) throws InterruptedException {
+		try {
+		for(WebElement c:cardTitleList) {
+			if(c.getText().equals(title)) {
+				c.findElement(By.xpath("//button[text()=' Delete ']")).click();
+				Thread.sleep(3000);
+				
+			}
+		}
+		}catch(StaleElementReferenceException e) {
+			for(WebElement c:cardTitleList) {
+				if(c.getText().equals(title)) {
+					c.findElement(By.xpath("//button[text()=' Delete ']")).click();
+					Thread.sleep(3000);
+					
+				}
+			}
+		}
+	
 	}
 
 }
