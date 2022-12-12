@@ -29,6 +29,9 @@ public class TaskListPage {
 	@FindBy(xpath="//h5[@class='card-title']")
 	List <WebElement> cardTitleList;
 	
+	@FindBy(xpath="//div[@class='card w-100']")
+	List <WebElement> taskCount;
+	
 	public TaskListPage(WebDriver driver) {
 		this.driver=driver;
 		
@@ -68,6 +71,11 @@ public class TaskListPage {
 			}
 		}
 	
+	}
+	
+	public int countTask() {
+		return taskCount.size();
+		
 	}
 
 }

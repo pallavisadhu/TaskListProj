@@ -39,5 +39,11 @@ public class TaskListTest extends TestBase{
 		tp.deleteTask("Project1");
 	}
 	
+	@Test(priority=3)
+	public void verifyTaskCount() {
+		System.out.println("Verify task count");
+		Assert.assertEquals(tp.countTask(), 11);
+	}
+	
 
 }
